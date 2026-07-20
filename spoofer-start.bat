@@ -9,10 +9,8 @@ if "%ERRORLEVEL%"=="1" (
     timeout /t 5 /nobreak >nul
     goto wait_for_steam
 )
-:: Beri tambahan waktu 10 detik agar Steam benar-benar selesai loading & siap
 timeout /t 10 /nobreak >nul
 
-:: Set path to SAM.Game.exe
 set "SAM_EXE=SAM.Game.exe"
 if exist "bin\SAM.Game.exe" set "SAM_EXE=bin\SAM.Game.exe"
 if exist "upload\SAM.Game.exe" set "SAM_EXE=upload\SAM.Game.exe"
@@ -29,13 +27,12 @@ if not exist "games.json" (
     exit /b 1
 )
 
-:: Parse games.json using powershell and loop through games
-for /f "tokens=*" %%a in ('powershell -Command "(Get-Content games.json | ConvertFrom-Json).games -join ' '"') do (
-    for %%i in (%%a) do (
-        echo Spoofing AppID: %%i
-        start "" "%SAM_EXE%" %%i --headless
-    )
+powershell -NoProfile -Command "(Get-Content games.json | ConvertFrom-Json).games" > "%TEMP%\sam_games.txt"
+for /f "usebackq tokens=*" %%i in ("%TEMP%\sam_games.txt") do (
+    echo Spoofing AppID: %%i
+    start "" "%SAM_EXE%" %%i --headless
 )
+del "%TEMP%\sam_games.txt" >nul 2>&1
 
 echo.
 echo Spoofer berjalan di background! (Seamless)

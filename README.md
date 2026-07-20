@@ -34,3 +34,4 @@ Perangkat lunak ini didistribusikan di bawah **zlib License** (`LICENSE.txt`).
 - **Seamless Spoofer Mod**: Hafidh99
 
 Me do not claim to have written the original Steam Achievement Manager. This is a clearly marked altered source version.\_
+    
