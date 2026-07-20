@@ -1,4 +1,4 @@
-﻿/* Copyright (c) 2024 Rick (rick 'at' gibbed 'dot' us)
+/* Copyright (c) 2024 Rick (rick 'at' gibbed 'dot' us)
  *
  * This software is provided 'as-is', without any express or implied
  * warranty. In no event will the authors be held liable for any damages
@@ -107,9 +107,21 @@ namespace SAM.Game
                     return;
                 }
 
-                Application.EnableVisualStyles();
-                Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new Manager(appId, client));
+                bool headless = args.Length > 1 && string.Equals(args[1], "--headless", StringComparison.OrdinalIgnoreCase);
+                if (headless)
+                {
+                    while (true)
+                    {
+                        client.RunCallbacks(false);
+                        System.Threading.Thread.Sleep(100);
+                    }
+                }
+                else
+                {
+                    Application.EnableVisualStyles();
+                    Application.SetCompatibleTextRenderingDefault(false);
+                    Application.Run(new Manager(appId, client));
+                }
             }
         }
     }

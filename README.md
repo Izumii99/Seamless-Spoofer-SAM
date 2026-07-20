@@ -1,20 +1,36 @@
-# Steam Achievement Manager
+# Steam Seamless Spoofer (Modified SAM)
 
-Steam Achievement Manager (SAM) is a lightweight, portable application used to manage achievements and statistics in the popular PC gaming platform Steam. This application requires the [Steam client](https://store.steampowered.com/about/), a Steam account and network access. Steam must be running and the user must be logged in.
+Ini adalah versi modifikasi dari [Steam Achievement Manager (SAM) by Gibbed](https://github.com/gibbed/SteamAchievementManager).
 
-This is the code for SAM. The closed-source version originally released in 2008, last major release in 2011, and last updated in 2013 (a hotfix).
+Modifikasi ini berfokus pada fitur **Seamless Spoofer / Auto-Idler**, yang memungkinkan kamu untuk menjalankan banyak game (nge-_boost_ jam main) secara bersamaan di _background_ tanpa adanya jendela UI yang mengganggu (_100% stealth & headless_).
 
-The code is being made available so that those interested can do as they like with it.
+## Fitur Utama Modifikasi
 
-There are some changes to the code since the last closed-source release:
-- General code maintenance to bring it into a more modern state.
-- Icons have been replaced with ones from the Fugue Icons set.
-- Version has been bumped to 7.0.x.x to indicate the open-source release.
+- **Headless Mode**: Menjalankan SAM tanpa UI utama agar tidak memakan layar.
+- **Konfigurasi JSON**: Menggunakan file `games.json` untuk menentukan game apa saja yang ingin di-spoof.
+- **Auto-Wait Steam**: Mencegah _error_ saat booting dengan mendeteksi otomatis kapan Steam siap berjalan.
+- **VBS & Batch Scripts**: Skrip khusus (`spoofer-start.bat`, `spoofer-hidden.vbs`, dll) yang membuat proses _running_ dan menambahkan ke _Startup Windows_ semudah sekali klik.
 
-[Download latest release](https://github.com/gibbed/SteamAchievementManager/releases/latest).
+## Cara Menggunakan (Untuk User)
 
-[![Build status](https://ci.appveyor.com/api/projects/status/00vic6jliar6j0ol/branch/master?svg=true)](https://ci.appveyor.com/project/gibbed/steamachievementmanager/branch/master)
+Jika kamu hanya ingin menggunakan aplikasi ini tanpa mem-_build_ kode:
 
-## Attribution
+1. Pergi ke tab **Releases** di GitHub ini.
+2. Download file `.zip` versi terbaru.
+3. Ekstrak, lalu edit `games.json` dengan App ID game favoritmu.
+4. Klik **`spoofer-hidden.vbs`** untuk mulai, dan **`spoofer-stop.bat`** untuk berhenti.
 
-Most (if not all) icons are from the [Fugue Icons](https://p.yusukekamiyamane.com/) set.
+## Cara Build (Untuk Developer)
+
+1. _Clone repo_ ini.
+2. Buka `SAM.sln` di Visual Studio, atau gunakan perintah `dotnet build` (pastikan .NET SDK terinstal).
+3. Hasil kompilasi akan berada di folder `bin`.
+
+## Lisensi & Kredit
+
+Perangkat lunak ini didistribusikan di bawah **zlib License** (`LICENSE.txt`).
+
+- **Original Code & API**: Ditulis oleh Rick (gibbed).
+- **Seamless Spoofer Mod**: Hafidh99
+
+Me do not claim to have written the original Steam Achievement Manager. This is a clearly marked altered source version.\_
