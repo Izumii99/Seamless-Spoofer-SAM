@@ -31,7 +31,6 @@ Jika kamu hanya ingin menggunakan aplikasi ini tanpa mem-_build_ kode:
 Perangkat lunak ini didistribusikan di bawah **zlib License** (`LICENSE.txt`).
 
 - **Original Code & API**: Ditulis oleh Rick (gibbed).
-- **Seamless Spoofer Mod**: Hafidh99
+- **Seamless Spoofer Mod**: Izumii99
 
-Me do not claim to have written the original Steam Achievement Manager. This is a clearly marked altered source version.\_
-    
+Me do not claim to have written the original Steam Achievement Manager. This is a clearly marked altered source version.
