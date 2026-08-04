@@ -39,6 +39,8 @@ namespace SAM.Game
                 return;
             }
 
+            bool isHeadless = args.Length > 1 && args[1] == "--headless";
+
             if (long.TryParse(args[0], out appId) == false)
             {
                 MessageBox.Show(
@@ -67,6 +69,11 @@ namespace SAM.Game
                 }
                 catch (API.ClientInitializeException e)
                 {
+                    if (isHeadless)
+                    {
+                        return;
+                    }
+
                     if (e.Failure == API.ClientInitializeFailure.ConnectToGlobalUser)
                     {
                         MessageBox.Show(

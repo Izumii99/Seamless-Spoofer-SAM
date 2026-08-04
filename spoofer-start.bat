@@ -2,12 +2,18 @@
 echo Starting Steam Spoofer (Seamless)...
 cd /d "%~dp0"
 
-echo Menunggu Steam berjalan...
-:wait_for_steam
+echo Menunggu Internet dan Steam berjalan...
+:wait_for_conditions
+ping -n 1 8.8.8.8 >nul 2>&1
+if "%ERRORLEVEL%" NEQ "0" (
+    timeout /t 5 /nobreak >nul
+    goto wait_for_conditions
+)
+
 tasklist /FI "IMAGENAME eq steam.exe" 2>NUL | find /I /N "steam.exe">NUL
 if "%ERRORLEVEL%"=="1" (
     timeout /t 5 /nobreak >nul
-    goto wait_for_steam
+    goto wait_for_conditions
 )
 timeout /t 10 /nobreak >nul
 
